@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.E.A. Santa Isabel - Educación Alternativa y Técnica | San Lorenzo, Tarija</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        academic: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, rgba(12, 74, 110, 0.95) 0%, rgba(22, 101, 52, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-600 selection:text-white">
+
+    <!-- Encabezado Superior e Institucional -->
+    <div class="bg-academic-900 text-slate-200 text-xs sm:text-sm py-2 px-4 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center"><i class="fa-solid fa-location-dot text-brand-600 mr-1.5"></i> San Lorenzo, Tarija - Bolivia</span>
+                <span class="hidden md:inline flex items-center"><i class="fa-solid fa-clock text-brand-600 mr-1.5"></i> Turnos: Tarde y Noche</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="https://wa.me/59170000000" target="_blank" class="hover:text-green-400 transition flex items-center">
+                    <i class="fa-brands fa-whatsapp mr-1 text-base"></i> Consultas WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación Principal -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-3 group">
+                        <div class="w-12 h-12 bg-gradient-to-br from-academic-800 to-brand-700 rounded-xl flex items-center justify-center text-white text-xl font-extrabold shadow-md group-hover:scale-105 transition transform">
+                            SI
+                        </div>
+                        <div>
+                            <span class="text-xl font-bold tracking-tight text-slate-900 block leading-none">C.E.A. "Santa Isabel"</span>
+                            <span class="text-xs font-medium text-brand-700 mt-1 block">Educación Alternativa y Técnica</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Menú Escritorio -->
+                <div class="hidden md:flex items-center space-x-1 lg:space-x-2 font-medium text-sm text-slate-700">
+                    <a href="#inicio" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-slate-50 transition">Inicio</a>
+                    <a href="#especialidades" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-slate-50 transition">Carreras Técnicas</a>
+                    <a href="#nosotros" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-slate-50 transition">Nosotros</a>
+                    <a href="#eventos" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-slate-50 transition">Noticias y Eventos</a>
+                    <a href="#contacto" class="ml-3 px-4 py-2.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white shadow-sm hover:shadow transition flex items-center">
+                        <i class="fa-solid fa-pen-to-square mr-2"></i> Inscripciones
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-slate-600 hover:text-slate-900 p-2 rounded-lg focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Inicio</a>
+            <a href="#especialidades" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Carreras Técnicas</a>
+            <a href="#nosotros" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Nosotros</a>
+            <a href="#eventos" class="block px-3 py-2.5 rounded-lg text-slate-700 font-medium hover:bg-slate-100">Noticias y Eventos</a>
+            <a href="#contacto" class="block px-3 py-2.5 rounded-lg bg-brand-700 text-white font-medium text-center">Inscribirme Ahora</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="gradient-hero text-white py-20 lg:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/10 backdrop-blur-md text-green-300 mb-6 border border-white/20">
+                    <i class="fa-solid fa-award mr-2"></i> Educación Sociocomunitaria Productiva
+                </span>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                    Formación Técnica Práctica para un Futuro con Oportunidades
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-200 mb-8 leading-relaxed">
+                    El Centro de Educación Alternativa **"Santa Isabel"** capacita a jóvenes y adultos en San Lorenzo con carreras técnicas de rápida inserción laboral y emprendimiento productivo.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#especialidades" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 font-semibold text-white shadow-lg hover:shadow-xl transition transform active:scale-95">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i> Ver Carreras Técnicas
+                    </a>
+                    <a href="#contacto" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 font-semibold text-white transition">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Solicitar Información
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Elemento decorativo inferior -->
+        <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-slate-50 to-transparent"></div>
+    </section>
+
+    <!-- Datos Rápidos / Stats -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-100">
+            <div class="flex items-center space-x-4">
+                <div class="w-14 h-14 rounded-2xl bg-academic-50 text-academic-600 flex items-center justify-center text-2xl font-bold">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold text-lg">Certificación Oficial</h3>
+                    <p class="text-slate-500 text-sm">Títulos avalados por el Ministerio de Educación</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-700 flex items-center justify-center text-2xl font-bold">
+                    <i class="fa-solid fa-hammer"></i>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold text-lg">Aprende Haciendo</h3>
+                    <p class="text-slate-500 text-sm">80% clases prácticas e infraestructura equipada</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl font-bold">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                    <h3 class="text-slate-900 font-bold text-lg">Horarios Flexibles</h3>
+                    <p class="text-slate-500 text-sm">Turnos acordes a tu disponibilidad de tiempo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oferta Académica / Especialidades -->
+    <section id="especialidades" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-brand-700 font-bold tracking-wider uppercase text-xs">Áreas de Capacitación</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Nuestras Especialidades Técnicas</h2>
+            <p class="text-slate-600 mt-3">Desarrolla habilidades prácticas indispensables para emprender tu propio negocio o vincularte al sector productivo.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Tarjeta 1: Sistemas Informáticos -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col">
+                <div class="h-48 relative overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800&auto=format&fit=crop" 
+                         alt="Sistemas Informáticos" 
+                         class="w-full h-full object-cover opacity-80 hover:scale-105 transition duration-500"
+                         onerror="this.src='https://placehold.co/800x400/0284c7/ffffff?text=Informática'">
+                    <span class="absolute top-4 right-4 bg-academic-800 text-white text-xs px-3 py-1 rounded-full font-semibold">Técnico Medio / Básico</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-2 text-academic-600 mb-2">
+                            <i class="fa-solid fa-laptop-code text-xl"></i>
+                            <span class="font-bold text-xs uppercase tracking-wider">Tecnología</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Sistemas Informáticos y Operación de Computadoras</h3>
+                        <p class="text-slate-600 text-sm mb-4">Dominio de herramientas digitales para la oficina, diseño gráfico, edición multimedia y mantenimiento de hardware.</p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Ofimática avanzada (Word, Excel, PowerPoint)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Edición de Audio, Video y Diseño Digital</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Mantenimiento y Ensamblaje de PC</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Sistemas Informáticos', 'Aprenderás a operar sistemas computacionales, manejo avanzado de paquetes administrativos, mantenimiento preventivo de computadoras y creación de contenidos audiovisuales. Ideal para la gestión digital en empresas o servicios independientes.')" 
+                            class="w-full py-2.5 px-4 bg-slate-100 hover:bg-academic-600 hover:text-white text-slate-700 font-semibold text-sm rounded-xl transition text-center">
+                        Más Información
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Confección Textil -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col">
+                <div class="h-48 relative overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=800&auto=format&fit=crop" 
+                         alt="Confección Textil" 
+                         class="w-full h-full object-cover opacity-80 hover:scale-105 transition duration-500"
+                         onerror="this.src='https://placehold.co/800x400/16a34a/ffffff?text=Textil'">
+                    <span class="absolute top-4 right-4 bg-brand-700 text-white text-xs px-3 py-1 rounded-full font-semibold">Técnico Medio / Básico</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-2 text-brand-700 mb-2">
+                            <i class="fa-solid fa-scissors text-xl"></i>
+                            <span class="font-bold text-xs uppercase tracking-wider">Diseño y Moda</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Confección Textil y Diseño de Vestimenta</h3>
+                        <p class="text-slate-600 text-sm mb-4">Aprende patronaje, corte, confección de prendas modernas, uniformes y vestimenta tradicional con acabados de alta calidad.</p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Patronaje industrial y a medida</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Trajes típicos e indumentaria local</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Participación en pasarelas institucionales</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Confección Textil', 'Capacitación integral en el manejo de máquinas industriales, trazado de patrones, diseño de modas y producción de prendas de vestir. Nuestros estudiantes destacan anualmente en eventos como la Pasarela de Invierno exhibiendo sus creaciones.')" 
+                            class="w-full py-2.5 px-4 bg-slate-100 hover:bg-brand-700 hover:text-white text-slate-700 font-semibold text-sm rounded-xl transition text-center">
+                        Más Información
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Belleza Integral -->
+            <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col">
+                <div class="h-48 relative overflow-hidden bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop" 
+                         alt="Belleza Integral" 
+                         class="w-full h-full object-cover opacity-80 hover:scale-105 transition duration-500"
+                         onerror="this.src='https://placehold.co/800x400/d97706/ffffff?text=Belleza'">
+                    <span class="absolute top-4 right-4 bg-amber-600 text-white text-xs px-3 py-1 rounded-full font-semibold">Técnico Medio / Básico</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-2 text-amber-600 mb-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                            <span class="font-bold text-xs uppercase tracking-wider">Estética</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Belleza Integral y Estética Personal</h3>
+                        <p class="text-slate-600 text-sm mb-4">Especialización en peluquería, peinados, cosmetología, maquillaje profesional, manicura y cuidado personal.</p>
+                        <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Corte de cabello, peinados y colorimetría</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Maquillaje social y caracterización</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-600 mr-2"></i> Tratamientos capilares y facionales</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Belleza Integral', 'Módulos prácticos enfocado al estilismo profesional. El estudiante adquiere las competencias necesarias para instalar su propio salón de belleza o trabajar en estética personal, aplicando tendencias modernas de cuidado.')" 
+                            class="w-full py-2.5 px-4 bg-slate-100 hover:bg-amber-600 hover:text-white text-slate-700 font-semibold text-sm rounded-xl transition text-center">
+                        Más Información
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros / Filosofía Educativa -->
+    <section id="nosotros" class="py-20 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brand-700 font-bold tracking-wider uppercase text-xs">Identidad Institucional</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2 mb-6">
+                        Impulsamos el Talento Productivo de San Lorenzo
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        El **Centro de Educación Alternativa "Santa Isabel"**, enmarcado en el Modelo Educativo Sociocomunitario Productivo, brinda oportunidades de capacitación integral a jóvenes y adultos que buscan concretar metas personales y profesionales.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 flex space-x-4">
+                            <div class="text-brand-700 text-2xl pt-1"><i class="fa-solid fa-bullseye"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Misión</h4>
+                                <p class="text-slate-600 text-sm">Formar personas críticas, reflexivas y emprendedoras mediante una educación técnica integral con sentido comunitario y compromiso social.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-white rounded-xl shadow-sm border border-slate-200 flex space-x-4">
+                            <div class="text-academic-600 text-2xl pt-1"><i class="fa-solid fa-eye"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Visión</h4>
+                                <p class="text-slate-600 text-sm">Ser un referente en Educación Alternativa en Tarija, reconocido por la excelencia en la preparación técnica y el impacto positivo de nuestros graduados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop" 
+                         alt="Educación Alternativa" 
+                         class="rounded-2xl shadow-md object-cover h-64 w-full"
+                         onerror="this.src='https://placehold.co/600x600/15803d/ffffff?text=C.E.A.+Santa+Isabel'">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop" 
+                         alt="Estudiantes trabajando" 
+                         class="rounded-2xl shadow-md object-cover h-64 w-full mt-8"
+                         onerror="this.src='https://placehold.co/600x600/0284c7/ffffff?text=Trabajo+Pr%C3%A1ctico'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Próximos Eventos y Noticias -->
+    <section id="eventos" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <span class="text-brand-700 font-bold tracking-wider uppercase text-xs">Vida Institucional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Próximos Eventos y Avisos</h2>
+            </div>
+            <p class="text-slate-500 text-sm mt-2 md:mt-0">Mantente informado sobre nuestras actividades productivas y académicas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Evento 1 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-brand-600 transition">
+                <div class="flex items-center space-x-3 text-xs font-semibold text-brand-700 bg-brand-50 w-fit px-3 py-1 rounded-full mb-4">
+                    <i class="fa-regular fa-calendar"></i> Próximamente
+                </div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">Exposición y Pasarela de Invierno</h3>
+                <p class="text-slate-600 text-sm mb-4">Demostración práctica de las creaciones de vestimenta diseñadas por las estudiantes del área de Confección Textil.</p>
+                <div class="text-xs text-slate-500 border-t pt-3 flex justify-between">
+                    <span><i class="fa-solid fa-location-dot mr-1"></i> San Lorenzo</span>
+                    <span class="font-semibold text-slate-700">Participación General</span>
+                </div>
+            </div>
+
+            <!-- Evento 2 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-academic-600 transition">
+                <div class="flex items-center space-x-3 text-xs font-semibold text-academic-600 bg-academic-50 w-fit px-3 py-1 rounded-full mb-4">
+                    <i class="fa-regular fa-calendar"></i> Actividad Productiva
+                </div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">Feria Productiva Sociocomunitaria</h3>
+                <p class="text-slate-600 text-sm mb-4">Muestra de trabajos, proyectos informáticos y servicios de cosmetología abiertos al público en general.</p>
+                <div class="text-xs text-slate-500 border-t pt-3 flex justify-between">
+                    <span><i class="fa-solid fa-location-dot mr-1"></i> Instalaciones C.E.A.</span>
+                    <span class="font-semibold text-slate-700">Entrada Libre</span>
+                </div>
+            </div>
+
+            <!-- Evento 3 -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-amber-600 transition">
+                <div class="flex items-center space-x-3 text-xs font-semibold text-amber-600 bg-amber-50 w-fit px-3 py-1 rounded-full mb-4">
+                    <i class="fa-solid fa-scroll"></i> Certificación
+                </div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">Entrega de Títulos Técnico Medio</h3>
+                <p class="text-slate-600 text-sm mb-4">Acto académico de graduación y entrega de certificados oficiales a los participantes egresados.</p>
+                <div class="text-xs text-slate-500 border-t pt-3 flex justify-between">
+                    <span><i class="fa-solid fa-location-dot mr-1"></i> Salón Consistorial</span>
+                    <span class="font-semibold text-slate-700">Acreditación Oficial</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto e Inscripción -->
+    <section id="contacto" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <div>
+                    <span class="text-green-400 font-bold tracking-wider uppercase text-xs">Formulario de Registro</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-6">Inscríbete o Solicita Información</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+                        Déjanos tus datos e interés técnico. Nuestro equipo te contactará para informarte sobre requisitos, fechas de inicio y horarios.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-green-400 text-lg flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Ubicación Institucional</h4>
+                                <p class="text-slate-400 text-sm">San Lorenzo, Provincia Méndez, Tarija - Bolivia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-green-400 text-lg flex-shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Horarios de Atención</h4>
+                                <p class="text-slate-400 text-sm">Lunes a Viernes: 14:00 - 21:00 (Turno Tarde / Noche)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-green-400 text-lg flex-shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Atención por WhatsApp</h4>
+                                <p class="text-slate-400 text-sm">+591 70000000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl">
+                    <form id="enrollment-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Nombre Completo</label>
+                            <input type="text" required placeholder="Ej. María Gutiérrez" 
+                                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-600 text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Teléfono / Celular (WhatsApp)</label>
+                            <input type="tel" required placeholder="Ej. 71234567" 
+                                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-600 text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Especialidad de Interés</label>
+                            <select required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-brand-600 text-sm">
+                                <option value="" disabled selected>Selecciona una carrera técnica</option>
+                                <option value="Sistemas Informáticos">Sistemas Informáticos / Computación</option>
+                                <option value="Confección Textil">Confección Textil y Diseño</option>
+                                <option value="Belleza Integral">Belleza Integral y Estética</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Consulta o Mensaje</label>
+                            <textarea rows="3" placeholder="¿Deseas realizar alguna consulta específica?" 
+                                      class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-brand-600 text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center text-sm">
+                            <i class="fa-brands fa-whatsapp mr-2 text-base"></i> Enviar Mensaje por WhatsApp
+                        </button>
+                    </form>
+
+                    <!-- Mensaje de Confirmación Simulada -->
+                    <div id="form-success" class="hidden mt-4 p-4 bg-green-900/50 border border-green-500 text-green-200 rounded-xl text-xs text-center">
+                        <i class="fa-solid fa-circle-check text-base mr-1"></i> Tu mensaje ha sido preparado. Redirigiendo a WhatsApp...
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-brand-700 rounded-lg flex items-center justify-center text-white font-bold">SI</div>
+                <span class="text-slate-200 font-semibold text-sm">C.E.A. "Santa Isabel"</span>
+            </div>
+            <p class="text-center sm:text-right">
+                &copy; 2026 Centro de Educación Alternativa Santa Isabel. San Lorenzo - Tarija, Bolivia.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal para Detalle de Carreras -->
+    <div id="info-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative border border-slate-100">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-2 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="modal-title" class="text-xl font-bold text-slate-900 mb-3"></h3>
+            <p id="modal-description" class="text-slate-600 text-sm leading-relaxed mb-6"></p>
+            <div class="flex justify-end space-x-3">
+                <button onclick="closeModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold">Cerrar</button>
+                <a href="#contacto" onclick="closeModal()" class="px-4 py-2 bg-brand-700 hover:bg-brand-800 text-white rounded-xl text-xs font-semibold">Inscribirme</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menú hamburguesa para dispositivos móviles
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Control del Modal informativo
+        function openModal(title, description) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-description').innerText = description;
+            document.getElementById('info-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('info-modal').classList.add('hidden');
+        }
+
+        // Envío de formulario mediante simulación de WhatsApp
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const name = form.elements[0].value;
+            const phone = form.elements[1].value;
+            const course = form.elements[2].value;
+            const message = form.elements[3].value;
+
+            const text = `Hola, mi nombre es ${name}. Estoy interesado/a en la especialidad de ${course} en el CEA Santa Isabel. Mi número es ${phone}. ${message}`;
+            const encodedText = encodeURIComponent(text);
+
+            document.getElementById('form-success').classList.remove('hidden');
+
+            setTimeout(() => {
+                window.open(`https://wa.me/59170000000?text=${encodedText}`, '_blank');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
